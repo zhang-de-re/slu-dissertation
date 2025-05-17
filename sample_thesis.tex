@@ -1,0 +1,179 @@
+
+% ----------------------------------------------------------
+% SAMPLE Saint Louis University – Ph.D. Dissertation
+% Demonstrates compliance with Formatting Guide rev. Aug 2023
+% ----------------------------------------------------------
+\documentclass[12pt,oneside]{book}
+
+% ------------ Packages & global layout --------------------
+\usepackage[margin=1in]{geometry}     % 1‑inch margins
+\usepackage{setspace}                 % double ↔ single spacing
+\usepackage{ragged2e}                 % left‑justified, ragged‑right
+\usepackage{indentfirst}              % indent 1st ¶ after headings
+\usepackage{titlesec}                 % chapter heading format
+\usepackage{tocloft}                  % TOC / LOT / LOF tuning
+\usepackage{titling}                  % custom title page
+\usepackage{caption}                  % caption spacing & justification
+\usepackage{etoolbox}                 % environment hooks
+\usepackage{hyperref}                 % (blue) hyperlinks
+\usepackage{lmodern}                  % 12‑pt serif font
+\usepackage{lipsum}                   % placeholder text
+\usepackage{graphicx}                 % figures
+
+% ------------- Paragraph & spacing settings ---------------
+\doublespacing
+\setlength{\parindent}{0.5in}
+\setlength{\RaggedRightParindent}{0.5in}
+\RaggedRight
+
+% Single‑spaced, ragged‑right quotes & captions
+\AtBeginEnvironment{quote}{%
+  \singlespacing\setlength{\RaggedRightParindent}{0.5in}\RaggedRight}
+\AtBeginEnvironment{quotation}{%
+  \singlespacing\setlength{\RaggedRightParindent}{0.5in}\RaggedRight}
+\captionsetup{
+  font=singlespacing,
+  justification=raggedright,
+  singlelinecheck=false
+}
+
+% --- TOC title styling ------------------------------------
+\renewcommand{\contentsname}{TABLE OF CONTENTS}
+\renewcommand{\cfttoctitlefont}{\normalfont\bfseries\MakeUppercase\centering}
+\renewcommand{\cftaftertoctitle}{\hfill}
+
+% ------------------ Meta‑data -----------------------------
+\newcommand{\thesistitle}{A SAMPLE DISSERTATION TITLE\\IN TWO LINES OF ALL CAPS}
+\newcommand{\authorname}{Jane Q.\ Doe, B.A., M.A.}
+\newcommand{\degree}{Doctor of Philosophy}
+\newcommand{\graduationyear}{2025}
+\newcommand{\committeelist}{%
+Professor Alice Example, Chairperson and Advisor\\[1em]
+Associate Professor Bob Scholar\\[1em]
+Assistant Professor Carol Mentor}
+
+% --------------- Chapter heading style --------------------
+\titleformat{\chapter}[block]
+  {\normalfont\bfseries\centering\MakeUppercase}
+  {CHAPTER \thechapter:}{1em}{}
+
+% ===================  DOCUMENT  ===========================
+\begin{document}
+
+% ---------- Title page (NOT counted, NOT numbered) --------
+\begin{titlepage}
+\begin{center}
+\doublespacing
+{\Large\bfseries \thesistitle\par}
+\vfill
+\authorname\par
+\vfill
+A Dissertation Presented to the Graduate Faculty of\\
+Saint Louis University in Partial Fulfillment\\
+of the Requirements for the Degree of\\[1em]
+\degree\par
+\vfill
+\graduationyear
+\end{center}
+\end{titlepage}
+
+% ---------- COPYRIGHT page — page i -----------------------
+\clearpage
+\pagenumbering{roman}
+\setcounter{page}{1}
+\thispagestyle{plain}
+\begin{center}
+\copyright\ \graduationyear\ \authorname\\
+ALL RIGHTS RESERVED
+\end{center}
+\clearpage
+
+% ---------- Committee page — page ii ----------------------
+\thispagestyle{plain}
+\noindent\textbf{COMMITTEE IN CHARGE OF CANDIDACY:}\\[2em]
+\committeelist
+\clearpage
+
+% ---------- Abstract (optional) ---------------------------
+\chapter*{Abstract}
+\addcontentsline{toc}{chapter}{Abstract}
+\singlespacing
+\lipsum[1]  % keep ≤350 words in real dissertation
+\doublespacing
+\clearpage
+
+% ---------- Table of Contents & lists ---------------------
+\tableofcontents\clearpage
+\listoftables\clearpage
+\listoffigures\clearpage
+
+% ---------- MAIN MATTER (Arabic numbers) ------------------
+\mainmatter
+
+\chapter{INTRODUCTION}
+\section{Background and Significance}
+\lipsum[2-3]
+
+\section{Research Questions}
+\lipsum[4]
+
+\chapter{REVIEW OF THE LITERATURE}
+\lipsum[5-6]
+
+\chapter{METHODOLOGY}
+\section{Research Design}
+\lipsum[7]
+
+\section{Data Collection}
+\lipsum[8]
+
+% Sample table
+\begin{table}[ht]
+\centering
+\caption{Sample Descriptive Statistics}
+\begin{tabular}{lcc}
+\hline
+Variable & Mean & SD \\
+\hline
+Alpha & 10.2 & 1.5\\
+Beta & 5.8 & 0.9\\
+Gamma & 12.1 & 2.4\\
+\hline
+\end{tabular}
+\end{table}
+
+% Sample figure
+\begin{figure}[ht]
+\centering
+\caption{Placeholder Figure}
+\rule{3in}{1.5in} % gray box
+\end{figure}
+
+\chapter{RESULTS}
+\lipsum[9-10]
+
+\chapter{DISCUSSION}
+\lipsum[11-12]
+
+% ---------- APPENDICES ------------------------------------
+\appendix
+\chapter{SURVEY INSTRUMENT}
+\lipsum[13]
+
+% ---------- REFERENCES ------------------------------------
+\backmatter
+\singlespacing
+\begin{thebibliography}{99}
+\bibitem{sample} Doe, J. (2024). \textit{An Example Reference}. Dissertation Press.
+\end{thebibliography}
+\doublespacing
+
+% ---------- Vita Auctoris ---------------------------------
+\chapter*{Vita Auctoris}
+\addcontentsline{toc}{chapter}{Vita Auctoris}
+Jane Q. Doe was born in Placeholder City. She earned her B.A.\ in Philosophy
+from Example University in 2020 and her M.A.\ in Bioethics from Sample College
+in 2022. Her research interests include academic formatting compliance and
+placeholder text generation.
+
+\end{document}

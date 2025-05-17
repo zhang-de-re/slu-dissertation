@@ -1,0 +1,139 @@
+% ----------------------------------------------------------
+% Saint Louis University – Thesis / Project / Dissertation
+% Formatting-compliant template   (rev. 17 May 2025)
+% ----------------------------------------------------------
+\documentclass[12pt,oneside]{book}
+
+% ------------ Packages & global layout --------------------
+\usepackage[margin=1in]{geometry}          % 1-inch margins  :contentReference[oaicite:0]{index=0}:contentReference[oaicite:1]{index=1}
+\usepackage{setspace}                      % double ↔ single spacing
+\usepackage{ragged2e}                      % left-aligned (ragged-right) body :contentReference[oaicite:2]{index=2}:contentReference[oaicite:3]{index=3}
+\usepackage{titlesec}                      % uppercase chapter headings
+\usepackage{tocloft}                       % TOC/LOT/LOF fine-tuning
+\usepackage{titling}                       % custom title page
+\usepackage{caption}                       % caption spacing
+\usepackage{etoolbox}                      % hooks
+\usepackage{hyperref}                      % (optional) live links
+\usepackage{lmodern}                       % Times-like CM substitute
+\usepackage{indentfirst}   % indent first paragraph after every heading
+\raggedright                                 % SLU: left-justified only
+\setlength{\parindent}{0.5in}
+\doublespacing                               % SLU: double-space main text :contentReference[oaicite:4]{index=4}:contentReference[oaicite:5]{index=5}
+
+% single-spaced environments that must stay compact
+\AtBeginEnvironment{quote}{\singlespacing}
+\AtBeginEnvironment{quotation}{\singlespacing}
+\captionsetup{font=singlespacing}            % table / figure captions
+
+% --------------- User-editable meta-data ------------------
+\newcommand{\thesistitle}{YOUR THESIS/PROJECT/DISSERTATION TITLE APPEARS HERE ALL IN CAPITAL LETTERS, DOUBLE-SPACED, BOLD, EACH LINE SHORTER THAN THE LINE ABOVE IT}
+\newcommand{\authorname}{John J.\ Smith, B.A., M.A.}
+\newcommand{\degree}{Doctor of Philosophy}
+\newcommand{\graduationyear}{2025}
+% Committee – chair first, remainder alphabetical
+\newcommand{\committeelist}{%
+Associate Professor Jay Hammond, Chairperson and Advisor\\[1em]
+Professor J.\,A.\ Wayne Hellmann, O.F.M.\ Conv.\\[1em]
+Associate Professor Julie Rubio}
+
+% --------------- Chapter heading style --------------------
+\titleformat{\chapter}[block]
+  {\normalfont\bfseries\centering\MakeUppercase}
+  {CHAPTER \thechapter:}{1em}{}
+
+% ===================  DOCUMENT  ===========================
+\begin{document}
+
+% ---------- Title page  (NOT counted, NOT numbered) -------
+\begin{titlepage}
+\begin{center}
+\doublespacing
+{\Large\bfseries \thesistitle\par}
+\vfill
+\authorname\par
+\vfill
+A Thesis Presented to the Graduate Faculty of\\
+Saint Louis University in Partial Fulfillment\\
+of the Requirements for the Degree of\\[1em]
+\degree\par
+\vfill
+\graduationyear
+\end{center}
+\end{titlepage}
+
+% ---------- Front matter: lower-case Roman numerals -------
+\pagenumbering{roman}
+
+% -- Optional copyright page --------------------------------
+% \thispagestyle{empty}
+% \begin{center}
+% \copyright\ \graduationyear\ \authorname\\
+% ALL RIGHTS RESERVED
+% \end{center}
+% \clearpage
+
+% -- Committee page -----------------------------------------
+\thispagestyle{empty}
+\noindent\textbf{COMMITTEE IN CHARGE OF CANDIDACY:}\\[2em]
+\committeelist
+\clearpage
+
+% -- Optional dedication ------------------------------------
+% \chapter*{Dedication}
+% \addcontentsline{toc}{chapter}{Dedication}
+% Your dedication text here.
+% \clearpage
+
+% -- Optional acknowledgements ------------------------------
+% \chapter*{Acknowledgements}
+% \addcontentsline{toc}{chapter}{Acknowledgements}
+% Your acknowledgements text here.
+% \clearpage
+
+% -- Table of contents & lists -------------------------------
+\tableofcontents\clearpage
+\listoftables\clearpage      % comment if you have no tables
+\listoffigures\clearpage     % comment if you have no figures
+
+% ---------- Main matter: Arabic numerals -------------------
+\mainmatter
+\doublespacing
+\raggedright
+
+\chapter{INTRODUCTION}
+\section{The Problem}
+% -----------------------------------------------------------
+% Write your chapters normally.  Each \chapter{} starts a
+% new page automatically.  Use \singlespacing inside block
+% quotations or other exceptions per SLU rules.
+% -----------------------------------------------------------
+
+\chapter{REVIEW OF THE LITERATURE}
+% ...
+
+\chapter{METHODOLOGY}
+% ...
+
+\chapter{RESULTS}
+% ...
+
+\chapter{DISCUSSION}
+% ...
+
+% ---------- Appendices -------------------------------------
+\appendix
+\chapter{Sample Appendix Title}
+% ...
+
+% ---------- Bibliography / References ----------------------
+\backmatter
+\bibliographystyle{plain}     % or your discipline’s style
+\bibliography{references}
+
+% ---------- Vita Auctoris (required) -----------------------
+\chapter*{Vita Auctoris}
+\addcontentsline{toc}{chapter}{Vita Auctoris}
+John J. Smith was born in …  % keep concise, 3rd-person prose
+
+\end{document}
+
